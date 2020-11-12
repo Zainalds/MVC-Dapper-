@@ -1,0 +1,49 @@
+﻿@model MVC_Dapper.Models.Employee
+
+@{
+    ViewData["Title"] = "AddorEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddorEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.HiddenFor(model => model.EmployeeID)
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee_Name" class="control-label"></label>
+                <input asp-for="Employee_Name" class="form-control" />
+                <span asp-validation-for="Employee_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee_Posititon" class="control-label"></label>
+                <input asp-for="Employee_Posititon" class="form-control" />
+                <span asp-validation-for="Employee_Posititon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee_Age" class="control-label"></label>
+                <input asp-for="Employee_Age" class="form-control" />
+                <span asp-validation-for="Employee_Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee_Salary" class="control-label"></label>
+                <input asp-for="Employee_Salary" class="form-control" />
+                <span asp-validation-for="Employee_Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
